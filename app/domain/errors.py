@@ -58,3 +58,8 @@ class UnsupportedModelError(GatewayError):
             ),
             retryable=False,
         )
+
+
+class RoutingConfigurationError(GatewayError):
+    def __init__(self, message: str) -> None:
+        super().__init__(message, retryable=False)

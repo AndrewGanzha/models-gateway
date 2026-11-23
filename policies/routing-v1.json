@@ -1,0 +1,8 @@
+{
+  "version": "routing-v1",
+  "candidates": [
+    "openai",
+    "anthropic"
+  ],
+  "max_attempts": 2
+}
