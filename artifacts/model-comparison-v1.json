@@ -1,0 +1,346 @@
+{
+  "experiment": {
+    "started_at": "2026-11-23T13:21:18.471919+00:00",
+    "code_version": "model-gateway-module-1",
+    "prompt_version": "support-classifier-v1",
+    "dataset_version": "support-classification-dev-v1",
+    "dataset_split": "development",
+    "pricing_version": "proxyapi-2026-10-02",
+    "parameters": {
+      "max_output_tokens": 100
+    },
+    "environment": {
+      "python": "3.12.12",
+      "platform": "Windows-10-10.0.19045-SP0",
+      "httpx2": "2.16.2",
+      "gateway_url": "http://127.0.0.1:8001"
+    }
+  },
+  "currency": "RUB",
+  "runs": [
+    {
+      "requested_provider": "openai",
+      "requested_model": "openai/gpt-6-luna",
+      "actual_models": [
+        "openai/gpt-6-luna"
+      ],
+      "metrics": {
+        "total_items": 8,
+        "correct_items": 8,
+        "accuracy": 1.0,
+        "average_latency_ms": 2171.48,
+        "total_input_tokens": 684,
+        "total_output_tokens": 205,
+        "estimated_cost": 0.05127
+      },
+      "observations": [
+        {
+          "id": "delivery-1",
+          "input": "Когда курьер привезёт заказ?",
+          "expected": "delivery",
+          "prediction": "delivery",
+          "correct": true,
+          "latency_ms": 2416.82,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 84,
+            "output_tokens": 26,
+            "total_tokens": 110
+          },
+          "finish_reason": "completed"
+        },
+        {
+          "id": "delivery-2",
+          "input": "Посылка уже пять дней не меняет статус",
+          "expected": "delivery",
+          "prediction": "delivery",
+          "correct": true,
+          "latency_ms": 1417.39,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 86,
+            "output_tokens": 19,
+            "total_tokens": 105
+          },
+          "finish_reason": "completed"
+        },
+        {
+          "id": "refund-1",
+          "input": "Отмените покупку и верните деньги",
+          "expected": "refund",
+          "prediction": "refund",
+          "correct": true,
+          "latency_ms": 1720.98,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 85,
+            "output_tokens": 25,
+            "total_tokens": 110
+          },
+          "finish_reason": "completed"
+        },
+        {
+          "id": "refund-2",
+          "input": "Возврат оформлен неделю назад, но деньги не пришли",
+          "expected": "refund",
+          "prediction": "refund",
+          "correct": true,
+          "latency_ms": 3270.71,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 89,
+            "output_tokens": 29,
+            "total_tokens": 118
+          },
+          "finish_reason": "completed"
+        },
+        {
+          "id": "product-1",
+          "input": "У наушников не работает левый динамик",
+          "expected": "product",
+          "prediction": "product",
+          "correct": true,
+          "latency_ms": 2671.26,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 86,
+            "output_tokens": 20,
+            "total_tokens": 106
+          },
+          "finish_reason": "completed"
+        },
+        {
+          "id": "product-2",
+          "input": "Какой размер у этой куртки?",
+          "expected": "product",
+          "prediction": "product",
+          "correct": true,
+          "latency_ms": 2225.29,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 85,
+            "output_tokens": 21,
+            "total_tokens": 106
+          },
+          "finish_reason": "completed"
+        },
+        {
+          "id": "other-1",
+          "input": "Как изменить номер телефона в профиле?",
+          "expected": "other",
+          "prediction": "other",
+          "correct": true,
+          "latency_ms": 1899.86,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 84,
+            "output_tokens": 28,
+            "total_tokens": 112
+          },
+          "finish_reason": "completed"
+        },
+        {
+          "id": "other-2",
+          "input": "Где скачать чек за прошлый заказ?",
+          "expected": "other",
+          "prediction": "other",
+          "correct": true,
+          "latency_ms": 1749.55,
+          "requested_provider": "openai",
+          "actual_provider": "openai",
+          "requested_model": "openai/gpt-6-luna",
+          "actual_model": "openai/gpt-6-luna",
+          "usage": {
+            "input_tokens": 85,
+            "output_tokens": 37,
+            "total_tokens": 122
+          },
+          "finish_reason": "completed"
+        }
+      ]
+    },
+    {
+      "requested_provider": "anthropic",
+      "requested_model": "anthropic/claude-haiku-4-5",
+      "actual_models": [
+        "anthropic/claude-haiku-4-5"
+      ],
+      "metrics": {
+        "total_items": 8,
+        "correct_items": 8,
+        "accuracy": 1.0,
+        "average_latency_ms": 676.57,
+        "total_input_tokens": 1064,
+        "total_output_tokens": 34,
+        "estimated_cost": 0.363996
+      },
+      "observations": [
+        {
+          "id": "delivery-1",
+          "input": "Когда курьер привезёт заказ?",
+          "expected": "delivery",
+          "prediction": "delivery",
+          "correct": true,
+          "latency_ms": 560.58,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 132,
+            "output_tokens": 4,
+            "total_tokens": 136
+          },
+          "finish_reason": "end_turn"
+        },
+        {
+          "id": "delivery-2",
+          "input": "Посылка уже пять дней не меняет статус",
+          "expected": "delivery",
+          "prediction": "delivery",
+          "correct": true,
+          "latency_ms": 659.97,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 134,
+            "output_tokens": 4,
+            "total_tokens": 138
+          },
+          "finish_reason": "end_turn"
+        },
+        {
+          "id": "refund-1",
+          "input": "Отмените покупку и верните деньги",
+          "expected": "refund",
+          "prediction": "refund",
+          "correct": true,
+          "latency_ms": 635.24,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 131,
+            "output_tokens": 5,
+            "total_tokens": 136
+          },
+          "finish_reason": "end_turn"
+        },
+        {
+          "id": "refund-2",
+          "input": "Возврат оформлен неделю назад, но деньги не пришли",
+          "expected": "refund",
+          "prediction": "refund",
+          "correct": true,
+          "latency_ms": 949.02,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 140,
+            "output_tokens": 5,
+            "total_tokens": 145
+          },
+          "finish_reason": "end_turn"
+        },
+        {
+          "id": "product-1",
+          "input": "У наушников не работает левый динамик",
+          "expected": "product",
+          "prediction": "product",
+          "correct": true,
+          "latency_ms": 718.49,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 130,
+            "output_tokens": 4,
+            "total_tokens": 134
+          },
+          "finish_reason": "end_turn"
+        },
+        {
+          "id": "product-2",
+          "input": "Какой размер у этой куртки?",
+          "expected": "product",
+          "prediction": "product",
+          "correct": true,
+          "latency_ms": 576.17,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 130,
+            "output_tokens": 4,
+            "total_tokens": 134
+          },
+          "finish_reason": "end_turn"
+        },
+        {
+          "id": "other-1",
+          "input": "Как изменить номер телефона в профиле?",
+          "expected": "other",
+          "prediction": "other",
+          "correct": true,
+          "latency_ms": 588.37,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 133,
+            "output_tokens": 4,
+            "total_tokens": 137
+          },
+          "finish_reason": "end_turn"
+        },
+        {
+          "id": "other-2",
+          "input": "Где скачать чек за прошлый заказ?",
+          "expected": "other",
+          "prediction": "other",
+          "correct": true,
+          "latency_ms": 724.74,
+          "requested_provider": "anthropic",
+          "actual_provider": "anthropic",
+          "requested_model": "anthropic/claude-haiku-4-5",
+          "actual_model": "anthropic/claude-haiku-4-5",
+          "usage": {
+            "input_tokens": 134,
+            "output_tokens": 4,
+            "total_tokens": 138
+          },
+          "finish_reason": "end_turn"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "version": "support-classification-dev-v1",
+  "split": "development",
+  "items": [
+    {
+      "id": "delivery-1",
+      "text": "Когда курьер привезёт заказ?",
+      "expected": "delivery"
+    },
+    {
+      "id": "delivery-2",
+      "text": "Посылка уже пять дней не меняет статус",
+      "expected": "delivery"
+    },
+    {
+      "id": "refund-1",
+      "text": "Отмените покупку и верните деньги",
+      "expected": "refund"
+    },
+    {
+      "id": "refund-2",
+      "text": "Возврат оформлен неделю назад, но деньги не пришли",
+      "expected": "refund"
+    },
+    {
+      "id": "product-1",
+      "text": "У наушников не работает левый динамик",
+      "expected": "product"
+    },
+    {
+      "id": "product-2",
+      "text": "Какой размер у этой куртки?",
+      "expected": "product"
+    },
+    {
+      "id": "other-1",
+      "text": "Как изменить номер телефона в профиле?",
+      "expected": "other"
+    },
+    {
+      "id": "other-2",
+      "text": "Где скачать чек за прошлый заказ?",
+      "expected": "other"
+    }
+  ]
+}

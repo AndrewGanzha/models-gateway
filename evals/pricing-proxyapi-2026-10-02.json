@@ -1,0 +1,15 @@
+{
+  "version": "proxyapi-2026-10-02",
+  "captured_at": "2026-10-02",
+  "currency": "RUB",
+  "models": {
+    "openai/gpt-6-luna": {
+      "input_per_million": 30.0,
+      "output_per_million": 150.0
+    },
+    "anthropic/claude-haiku-4-5": {
+      "input_per_million": 295.0,
+      "output_per_million": 1474.0
+    }
+  }
+}
