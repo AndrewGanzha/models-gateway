@@ -11,10 +11,16 @@ from app.domain.errors import (
     ProviderRateLimitError,
     ProviderRequestError,
     ProviderUnavailableError,
+    RoutingConfigurationError,
     UnsupportedModelError,
 )
 from app.domain.models import GenerationRequest, GenerationResult
+from app.domain.routing import (
+    RoutedGenerationRequest,
+    RoutedGenerationResult,
+)
 from app.gateway.model_registry import build_model_registry
+from app.gateway.routing import ModelRouter, load_routing_policy
 from app.gateway.service import ModelGateway
 from app.providers.anthropic_provider import AnthropicProvider
 from app.providers.openai_provider import OpenAIProvider
@@ -28,7 +34,7 @@ model_registry = build_model_registry(
     anthropic_model=settings.anthropic_model,
 )
 
-gateways: dict[ProviderName, ModelGateway] = {
+gateways: dict[str, ModelGateway] = {
     "openai": ModelGateway(
         OpenAIProvider(
             AsyncOpenAI(
@@ -48,6 +54,11 @@ gateways: dict[ProviderName, ModelGateway] = {
         capabilities=model_registry["anthropic"],
     ),
 }
+
+model_router = ModelRouter(
+    gateways=gateways,
+    policy=load_routing_policy(),
+)
 
 router = APIRouter(tags=["generation"])
 
@@ -79,6 +90,28 @@ async def generate(
         return await gateways[provider].generate(request)
     except UnsupportedModelError as error:
         raise provider_http_error(error, 400) from error
+    except ProviderRequestError as error:
+        raise provider_http_error(error, 400) from error
+    except (
+        ProviderRateLimitError,
+        ProviderUnavailableError,
+    ) as error:
+        raise provider_http_error(error, 503) from error
+    except GatewayError as error:
+        raise provider_http_error(error, 502) from error
+
+
+@router.post(
+    "/generate/auto",
+    response_model=RoutedGenerationResult,
+)
+async def generate_automatically(
+    request: RoutedGenerationRequest,
+) -> RoutedGenerationResult:
+    try:
+        return await model_router.generate(request)
+    except RoutingConfigurationError as error:
+        raise provider_http_error(error, 500) from error
     except ProviderRequestError as error:
         raise provider_http_error(error, 400) from error
     except (
