@@ -1,5 +1,6 @@
 from typing import Literal
 
+import httpx2 as httpx
 from anthropic import AsyncAnthropic
 from fastapi import APIRouter, HTTPException, Query
 from openai import AsyncOpenAI
@@ -23,15 +24,18 @@ from app.gateway.model_registry import build_model_registry
 from app.gateway.routing import ModelRouter, load_routing_policy
 from app.gateway.service import ModelGateway
 from app.providers.anthropic_provider import AnthropicProvider
+from app.providers.ollama_provider import OllamaProvider
 from app.providers.openai_provider import OpenAIProvider
+from app.providers.vllm_provider import VLLMProvider
 
-
-ProviderName = Literal["openai", "anthropic"]
+ProviderName = Literal["openai", "anthropic", "ollama", "vllm"]
 
 settings = load_settings()
 model_registry = build_model_registry(
     openai_model=settings.openai_model,
     anthropic_model=settings.anthropic_model,
+    ollama_model=settings.ollama_model,
+    vllm_model=settings.vllm_model,
 )
 
 gateways: dict[str, ModelGateway] = {
@@ -52,6 +56,26 @@ gateways: dict[str, ModelGateway] = {
             )
         ),
         capabilities=model_registry["anthropic"],
+    ),
+    "ollama": ModelGateway(
+        OllamaProvider(
+            httpx.AsyncClient(
+                base_url=settings.ollama_base_url,
+                timeout=120.0,
+            )
+        ),
+        capabilities=model_registry["ollama"],
+    ),
+    "vllm": ModelGateway(
+        VLLMProvider(
+            AsyncOpenAI(
+                api_key=settings.vllm_api_key,
+                base_url=settings.vllm_base_url,
+                timeout=120.0,
+                max_retries=0,
+            )
+        ),
+        capabilities=model_registry["vllm"],
     ),
 }
 

@@ -12,6 +12,11 @@ class Settings:
     anthropic_model: str
     openai_base_url: str
     anthropic_base_url: str
+    ollama_model: str
+    ollama_base_url: str
+    vllm_api_key: str
+    vllm_model: str
+    vllm_base_url: str
 
 
 def load_settings() -> Settings:
@@ -24,6 +29,11 @@ def load_settings() -> Settings:
         "ANTHROPIC_MODEL": os.getenv("ANTHROPIC_MODEL", ""),
         "OPENAI_BASE_URL": os.getenv("OPENAI_BASE_URL", ""),
         "ANTHROPIC_BASE_URL": os.getenv("ANTHROPIC_BASE_URL", ""),
+        "OLLAMA_MODEL": os.getenv("OLLAMA_MODEL", ""),
+        "OLLAMA_BASE_URL": os.getenv("OLLAMA_BASE_URL", ""),
+        "VLLM_API_KEY": os.getenv("VLLM_API_KEY", ""),
+        "VLLM_MODEL": os.getenv("VLLM_MODEL", ""),
+        "VLLM_BASE_URL": os.getenv("VLLM_BASE_URL", ""),
     }
     missing = [name for name, value in values.items() if not value]
     if missing:
@@ -38,4 +48,9 @@ def load_settings() -> Settings:
         anthropic_model=values["ANTHROPIC_MODEL"],
         openai_base_url=values["OPENAI_BASE_URL"],
         anthropic_base_url=values["ANTHROPIC_BASE_URL"],
+        ollama_model=values["OLLAMA_MODEL"],
+        ollama_base_url=values["OLLAMA_BASE_URL"],
+        vllm_api_key=values["VLLM_API_KEY"],
+        vllm_model=values["VLLM_MODEL"],
+        vllm_base_url=values["VLLM_BASE_URL"],
     )

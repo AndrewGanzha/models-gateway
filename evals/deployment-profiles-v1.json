@@ -1,0 +1,29 @@
+{
+  "version": "deployment-profiles-v1",
+  "profiles": {
+    "openai": {
+      "placement": "Внешний API через ProxyAPI",
+      "hardware": "Управляется внешним поставщиком",
+      "runtime": "Версия сервера управляется внешним поставщиком",
+      "data_boundary": "Запрос передаётся внешнему сервису",
+      "availability": "Не зависит от компьютера разработчика",
+      "cost_model": "Оплата за входные и выходные токены"
+    },
+    "ollama": {
+      "placement": "Локальная Ollama",
+      "hardware": "Apple M4",
+      "runtime": "0.40.3",
+      "data_boundary": "Запрос обрабатывается на компьютере разработчика",
+      "availability": "Работает, пока запущены компьютер и Ollama",
+      "cost_model": "Собственное оборудование и электроэнергия"
+    },
+    "vllm": {
+      "placement": "vLLM в Google Colab",
+      "hardware": "NVIDIA T4 16 GB",
+      "runtime": "vLLM 0.31.0",
+      "data_boundary": "Запрос проходит через временный HTTPS-туннель в Colab",
+      "availability": "Зависит от временного сеанса Colab и туннеля",
+      "cost_model": "Временная учебная среда Colab, не являющаяся производственным тарифом"
+    }
+  }
+}
